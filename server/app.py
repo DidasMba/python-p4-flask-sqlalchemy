@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
+from flask import Flask, render_template
 
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -14,6 +13,12 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
+# Sample route for the root URL
+@app.route('/')
+def index():
+    return 'Hello, Flask!'
+
 if __name__ == '__main__':
     app.run(port=5555)
+
 
